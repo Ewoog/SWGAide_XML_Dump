@@ -185,9 +185,7 @@ public class SWGAideXML {
                     attb = temp[0];
                     break;
             }
-            if(planet_name != null && !planet_name.trim().isEmpty() && planet_name != "UNKNOWN PLANET") {
-                tstats.appendChild(getResourceElement(doc, tstats, attb, temp[1]));
-            }
+            tstats.appendChild(getResourceElement(doc, tstats, attb, temp[1]));
 
         }
         subparent.appendChild(tstats);
@@ -267,7 +265,9 @@ public class SWGAideXML {
             if (planet_name.equals("kashyyyk")){
                 kFlag = true;
             }
-            tplanents.appendChild(getResourceElement(doc, tplanents, "planet", planet_name));
+            if(planet_name != null && !planet_name.trim().isEmpty() && planet_name != "UNKNOWN PLANET") {
+                tplanents.appendChild(getResourceElement(doc, tplanents, "planet", planet_name));
+            }
         }
         tResource.appendChild(tplanents);
     }
