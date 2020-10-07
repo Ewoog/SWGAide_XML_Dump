@@ -265,7 +265,7 @@ public class SWGAideXML {
             if (planet_name.equals("kashyyyk")){
                 kFlag = true;
             }
-            if(planet_name != null && !planet_name.trim().isEmpty() && planet_name != "UNKNOWN PLANET") {
+            if(planet_name != null && !planet_name.trim().isEmpty() && !planet_name.equals("UNKNOWN PLANET")) {
                 tplanents.appendChild(getResourceElement(doc, tplanents, "planet", planet_name));
             }
         }
