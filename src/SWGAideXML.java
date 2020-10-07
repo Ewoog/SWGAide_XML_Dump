@@ -247,7 +247,7 @@ public class SWGAideXML {
                 case 10000035:
                 case 10000036:
                 case 10000037:
-                    planet_name = "kashyyk";
+                    planet_name = "kashyyyk";
                     break;
                 case 10000039:
                     planet_name = "mustafar";
@@ -259,13 +259,15 @@ public class SWGAideXML {
                     planet_name = "UNKNOWN PLANET";
                     break;
             }
-            if (kFlag && planet_name.equals("kashyyk")){
+            if (kFlag && planet_name.equals("kashyyyk")){
                 break;
             }
-            if (planet_name.equals("kashyyk")){
+            if (planet_name.equals("kashyyyk")){
                 kFlag = true;
             }
-            tplanents.appendChild(getResourceElement(doc, tplanents, "planet", planet_name));
+            if(planet_name != null && !planet_name.trim().isEmpty() && planet_name != "UNKNOWN PLANET") {
+                tplanents.appendChild(getResourceElement(doc, tplanents, "planet", planet_name));
+            }
         }
         tResource.appendChild(tplanents);
     }
