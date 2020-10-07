@@ -185,7 +185,9 @@ public class SWGAideXML {
                     attb = temp[0];
                     break;
             }
-            tstats.appendChild(getResourceElement(doc, tstats, attb, temp[1]));
+            if(planet_name != null && !planet_name.trim().isEmpty() && planet_name != "UNKNOWN PLANET") {
+                tstats.appendChild(getResourceElement(doc, tstats, attb, temp[1]));
+            }
 
         }
         subparent.appendChild(tstats);
